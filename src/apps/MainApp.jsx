@@ -24,7 +24,22 @@ function MainApp() {
     <div>
       <ul>
         <li>
-          <StyledLink to="/pizzas">PIZZAS</StyledLink>
+          <StyledLink to="/pizzas">Pizzas</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/steps">Steps</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/travel">Travel List</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/accordion">Accordion</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/calctip">Tip Calcultator</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/usepopcorn">Use Popcorn</StyledLink>
         </li>
       </ul>
     </div>
