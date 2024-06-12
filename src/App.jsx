@@ -8,6 +8,7 @@ import TravelApp from "./apps/travel/TravelApp";
 import AccordionApp from "./apps/accordion/AccordionApp";
 import CalcApp from "./apps/calculator/CalcApp";
 import UsePopcornApp from "./apps/usepopcorn/UsePopcornApp";
+import StartRating from "./apps/usepopcorn/StarRating";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/accordion" element={<AccordionApp />} />
         <Route path="/calctip" element={<CalcApp />} />
         <Route path="/usepopcorn" element={<UsePopcornApp />} />
+        <Route path="/starrating" element={<StartRating />} />
       </Routes>
     </BrowserRouter>
   );

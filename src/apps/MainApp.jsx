@@ -41,6 +41,9 @@ function MainApp() {
         <li>
           <StyledLink to="/usepopcorn">Use Popcorn</StyledLink>
         </li>
+        <li>
+          <StyledLink to="/starrating">Star Rating</StyledLink>
+        </li>
       </ul>
     </div>
   );
