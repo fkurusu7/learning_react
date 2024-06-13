@@ -44,6 +44,9 @@ function MainApp() {
         <li>
           <StyledLink to="/starrating">Star Rating</StyledLink>
         </li>
+        <li>
+          <StyledLink to="/hrw">How React Works</StyledLink>
+        </li>
       </ul>
     </div>
   );
