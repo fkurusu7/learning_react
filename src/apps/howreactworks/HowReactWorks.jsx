@@ -32,7 +32,7 @@ function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div>
+    <div className="content-tabs">
       <div className="tabs">
         <Tab num={0} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={1} activeTab={activeTab} onClick={setActiveTab} />
@@ -96,7 +96,7 @@ function TabContent({ item }) {
 function DifferentContent() {
   return (
     <div className="tab-content">
-      <h4>I'm a DIFFERENT tab, so I reset state 💣💥</h4>
+      <h4>I am a DIFFERENT tab, so I reset state 💣💥</h4>
     </div>
   );
 }

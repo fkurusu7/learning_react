@@ -111,7 +111,7 @@ function Footer() {
         </div>
       ) : (
         <p>
-          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+          We are happy to welcome you between {openHour}:00 and {closeHour}:00.
           Come visit us or order online.
         </p>
       )}

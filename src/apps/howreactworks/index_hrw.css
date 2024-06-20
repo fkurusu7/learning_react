@@ -5,10 +5,21 @@
 }
 
 .container-hrw {
-  font-family: sans-serif;
-  margin: 48px 96px;
-  position: relative;
   color: #444;
+  font-family: sans-serif;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-tabs {
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  width: 60%;
 }
 
 button {
@@ -49,8 +60,10 @@ button {
 
 .tab-content {
   background-color: #edf2ff;
-  padding: 32px;
   border-radius: 12px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+  height: 300px;
+  padding: 32px;
 }
 
 .tab-content h4 {
@@ -81,6 +94,10 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.hearts-counter span {
+  font-size: 17px;
 }
 
 .hearts-counter button {

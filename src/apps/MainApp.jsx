@@ -45,7 +45,7 @@ function MainApp() {
           <StyledLink to="/starrating">Star Rating</StyledLink>
         </li>
         <li>
-          <StyledLink to="/hrw">How React Works</StyledLink>
+          <StyledLink to="/hrw">How React Works (pending)</StyledLink>
         </li>
       </ul>
     </div>
