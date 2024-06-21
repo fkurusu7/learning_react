@@ -148,7 +148,7 @@ function Star({ onRate, full, onHoverIn, onHoverOut, color, size }) {
   );
 }
 
-export default StarRating;
+export default StarsComponent;
 
 /*
 SPACING SYSTEM (px)
