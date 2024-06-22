@@ -25,7 +25,7 @@ function TestExternalState() {
   );
 }
 
-function StarRating() {
+export function StarRating() {
   return (
     <div style={ContainerStyle}>
       <StarsComponent maxRating={7} />
