@@ -10,10 +10,12 @@ import CalcApp from "./apps/calculator/CalcApp";
 import UsePopcornApp from "./apps/usepopcorn/UsePopcornApp";
 import StartRating from "./apps/usepopcorn/StarRating";
 import HowReactWorks from "./apps/howreactworks/HowReactWorks";
+import GlobalStyles from "./ui/GlobalStyles";
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<MainApp />} />
