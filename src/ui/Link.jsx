@@ -32,21 +32,36 @@ const variations = {
   boxy: css`
     color: var(--color-indigo-700);
   `,
-  image: css``,
+  iconified: css`
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+
+    &:hover > svg {
+      transform: scale(1.05);
+      & .x {
+        color: var(--color-indigo-50);
+        height: 2rem;
+        width: auto;
+      }
+    }
+  `,
 };
 
 const StyledLink = styled(Link)`
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
+  width: fit-content;
+
+  &:focus,
+  &:active,
+  &:visited {
+    color: var(--color-indigo-50);
+  }
 
   ${(props) => sizes[props.size]}
-  ${(props) => variations[props.variations]}
+  ${(props) => variations[props.variation]}
 `;
-
-StyledLink.defaultProps = {
-  size: "medium",
-  variation: "boxy",
-};
 
 export default StyledLink;

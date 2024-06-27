@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const StyledAppLayout = styled.div`
   background-color: var(--color-grey-900);
@@ -19,12 +20,7 @@ const StyledMain = styled.main`
   justify-content: start;
   align-items: center;
 
-  height: 90vh; // Header is 4vh, footer 6vh
-  width: 100%;
-`;
-
-const Styledfooter = styled.footer`
-  height: 3vh;
+  height: 86vh; // Header is 4vh, footer 6vh
   width: 100%;
 `;
 
@@ -36,7 +32,7 @@ function AppLayout() {
         <h1>Practice Web Apps</h1>
         <Outlet />
       </StyledMain>
-      <Styledfooter>FOOTER</Styledfooter>
+      <Footer />
     </StyledAppLayout>
   );
 }

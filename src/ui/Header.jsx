@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { HiMoon } from "react-icons/hi2";
-// HiSun
-import StyledButton from "./Button";
+// import { HiMoon, HiSun } from "react-icons/hi2";
+// import StyledButton from "./Button";
 import StyledLink from "./Link";
 
 const StyledHeader = styled.header`
   background-color: transparent;
+  font-family: "Vast Shadow", serif;
   font-size: 2rem;
+  height: 7vh;
   padding: 2rem 0;
   width: 100%;
-  height: 7vh;
 
   display: flex;
   align-items: center;
@@ -19,7 +19,6 @@ const StyledHeader = styled.header`
 const StyledLogo = styled.div`
   color: var(--color-indigo-200);
   display: inline-block;
-  font-family: "Vast Shadow", serif;
   font-size: 3rem;
   font-style: normal;
   font-weight: 300;
@@ -35,6 +34,7 @@ const StyledOptions = styled.div`
 
 const StyledP = styled.p`
   color: var(--color-indigo-200);
+  display: inline-block;
 `;
 const StyledImage = styled.img`
   display: block;
