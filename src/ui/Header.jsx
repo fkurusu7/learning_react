@@ -1,39 +1,60 @@
 import styled from "styled-components";
-import { HiMoon, HiSun } from "react-icons/hi2";
+import { HiMoon } from "react-icons/hi2";
+// HiSun
+import StyledButton from "./Button";
+import StyledLink from "./Link";
 
 const StyledHeader = styled.header`
-  border: 1px solid red;
+  background-color: transparent;
   font-size: 2rem;
   padding: 2rem 0;
   width: 100%;
-  height: 4vh;
+  height: 7vh;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const StyledLogo = styled.div``;
+const StyledLogo = styled.div`
+  color: var(--color-indigo-200);
+  display: inline-block;
+  font-family: "Vast Shadow", serif;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 300;
+  text-transform: lowercase;
+`;
 
 const StyledOptions = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
+  column-gap: 1rem;
+`;
+
+const StyledP = styled.p`
+  color: var(--color-indigo-200);
+`;
+const StyledImage = styled.img`
+  display: block;
+  height: 3rem;
+  width: auto;
 `;
 
 function Header() {
   return (
     <StyledHeader>
-      <StyledLogo>LOGO</StyledLogo>
+      <StyledLogo>Fer.Codes</StyledLogo>
       <StyledOptions>
-        <button>
+        {/* <StyledButton>
           <HiMoon />
-        </button>
-        <button>
-          <HiSun />
-        </button>
-        <p>JONAS</p>
+        </StyledButton> */}
+        <StyledP>By</StyledP>
+
+        <StyledLink to="/">
+          <StyledImage src="./jonas_logo-small.png" alt="Jonas Logo" />
+        </StyledLink>
       </StyledOptions>
     </StyledHeader>
   );

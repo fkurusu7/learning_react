@@ -26,21 +26,18 @@ const GlobalStyles = createGlobalStyle`
       --color-green-200: #bbf7d0;
       --color-green-700: #15803d;
       --color-green-800: #166534;
-      --color-yellow-100: #fef9c3;
-      --color-yellow-500: #f59e0b;
-      --color-yellow-700: #a16207;
-      --color-silver-100: #e5e7eb;
-      --color-silver-700: #374151;
+
+      --color-indigo-50: #eef2ff;
       --color-indigo-100: #e0e7ff;
+      --color-indigo-200: #c7d2fe;
+      --color-indigo-300: #a5b4fc;
+      --color-indigo-400: #818cf8;
+      --color-indigo-500: #6366f1;
+      --color-indigo-600: #4f46e5;
       --color-indigo-700: #4338ca;
-      
-      --color-red-100: #fee2e2;
-      --color-red-200: #fecaca;
-      --color-red-300: #fca5a5;
-      --color-red-700: #b91c1c;
-      --color-red-800: #991b1b;
-      --color-pink-500: #ec4899;
-      --color-pink-600: #db2777;
+      --color-indigo-800: #3730a3;
+      --color-indigo-900: #312e81;
+      --color-indigo-950: #1e1b4b;
     }
 
     // DARK MODE
@@ -63,16 +60,18 @@ const GlobalStyles = createGlobalStyle`
       --color-green-200: #15803d;
       --color-green-700: #bbf7d0;
       --color-green-800: #dcfce7;
-      --color-yellow-100: #854d0e;
-      --color-yellow-700: #fef9c3;
-      --color-silver-100: #374151;
-      --color-silver-700: #f3f4f6;
-      --color-indigo-100: #3730a3;
-      --color-indigo-700: #e0e7ff;
 
-      --color-red-100: #fee2e2;
-      --color-red-700: #b91c1c;
-      --color-red-800: #991b1b;
+      --color-indigo-50: #1e1b4b;
+      --color-indigo-100: #312e81;
+      --color-indigo-200: #3730a3;
+      --color-indigo-300: #4338ca;
+      --color-indigo-400: #4f46e5;
+      --color-indigo-500: #6366f1;
+      --color-indigo-600: #818cf8;
+      --color-indigo-700: #a5b4fc;
+      --color-indigo-800: #c7d2fe;
+      --color-indigo-900: #e0e7ff;
+      --color-indigo-950: #eef2ff;
 
       --backdrop-color: rgba(0, 0, 0, 0.3);
 
@@ -157,62 +156,9 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
     color: inherit;
   }
-
-  // Handles Errors for FormRow inputs
-  input.error, 
-  input.error:focus, 
-  input.error:not(:placeholder-shown), 
-  textarea.error, 
-  textarea.error:focus, 
-  textarea.error:not(:placeholder-shown) {
-    /* background-color: var(--color-red-100); */
-    outline: 1px solid var(--color-red-700) !important;
-  }
-  input.error + label,
-  textarea.error + label{
-    color: var(--color-red-700) !important;
-  }
   
-  input.error + span, 
-  input.error:focus + span,
-  input.error:not(:placeholder-shown) + span{
-    color: var(--color-red-700);
-  } 
-  // Handles Errors for FormRow inputs
-
-
-  button {
-    cursor: pointer;
-  }
-
   *:disabled {
     cursor: not-allowed;
-  }
-
-  select:disabled,
-  input:disabled {
-    background-color: var(--color-grey-50);
-    color: var(--color-grey-500);
-  }
-
-  button:focus,
-  textarea:focus,
-  select:focus {
-    outline: .07rem solid var(--color-brand-500);
-  }
-
-  /* Parent selector */
-  button:has(svg) {
-    line-height: 0;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  ul {
-    list-style: none;
   }
 
   p,
@@ -237,15 +183,6 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-grey-500);
     font-weight: 400;
     font-size: 1.4rem;
-  }
-
-  /* hide download icon from preview (pdf) document */
-  #pdf-download, #header-bar{
-    display: none;
-  }
-
-  #pdf-controls{
-    z-index: 99;
   }
 
   /* TOOLTIP STYLES */
