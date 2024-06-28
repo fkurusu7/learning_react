@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
   background-color: transparent;
   font-family: "Vast Shadow", serif;
   font-size: 2rem;
-  height: 7vh;
+  height: 10vh;
   padding: 2rem 0;
   width: 100%;
 

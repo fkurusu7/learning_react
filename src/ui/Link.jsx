@@ -17,6 +17,18 @@ const sizes = {
     font-weight: 500;
     padding: 0.4rem 0.7rem;
   `,
+  nosize: css`
+    font-size: 1.8rem;
+    font-weight: 700;
+    height: 90%;
+    padding: 0;
+    width: 90%;
+  `,
+  largeicon: css`
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 0;
+  `,
 };
 
 const variations = {
@@ -28,22 +40,40 @@ const variations = {
       transform: translateY(0.3);
     }
   `,
-  button: css``,
-  boxy: css`
-    color: var(--color-indigo-700);
-  `,
-  iconified: css`
-    background-color: transparent;
+  simple: css`
     display: flex;
+    justify-content: center;
     align-items: center;
 
-    &:hover > svg {
-      transform: scale(1.05);
-      & .x {
-        color: var(--color-indigo-50);
-        height: 2rem;
+    &,
+    &:visited,
+    &:focus,
+    &:active {
+      color: var(--color-indigo-100);
+    }
+  `,
+
+  iconified: css`
+    background-color: transparent;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > svg {
+      height: 2rem;
+      color: var(--color-indigo-50);
+
+      &.github {
+        height: 2.7rem;
+        margin-top: -0.2rem;
         width: auto;
       }
+    }
+    &:hover > svg {
+      color: var(--color-indigo-300);
+      transform: scale(1.05);
     }
   `,
 };
@@ -60,8 +90,8 @@ const StyledLink = styled(Link)`
     color: var(--color-indigo-50);
   }
 
-  ${(props) => sizes[props.size]}
   ${(props) => variations[props.variation]}
+  ${(props) => sizes[props.size]}
 `;
 
 export default StyledLink;
