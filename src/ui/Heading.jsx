@@ -5,7 +5,7 @@ const StyledHeading = styled.h1`
   color: var(--color-indigo-400);
   line-height: 1.5;
   letter-spacing: 1rem;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   text-align: center;
 
   ${(props) =>

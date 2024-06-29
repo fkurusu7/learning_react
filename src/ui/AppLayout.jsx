@@ -11,7 +11,7 @@ const StyledAppLayout = styled.div`
   align-items: center;
   flex-direction: column;
 
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 5rem;
 `;
 
@@ -21,7 +21,8 @@ const StyledMain = styled.main`
   justify-content: start;
   align-items: center;
 
-  height: 83vh; // Header is 4vh, footer 6vh
+  margin: 3rem 0;
+  min-height: calc(83vh - 6rem); // Header is 4vh, footer 6vh
   width: 100%;
 `;
 

@@ -80,6 +80,7 @@ export default function UsePopcornApp() {
 
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
+    localStorage.setItem("watched", [...watched]);
   }
 
   function handleDeleteWatched(id) {
