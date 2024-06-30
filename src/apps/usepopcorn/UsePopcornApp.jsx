@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./index.css";
 import { useEffect } from "react";
 import StarsComponent from "./StarRating";
@@ -212,6 +212,29 @@ function NumResults({ movies }) {
 }
 
 function Search({ query, setQuery }) {
+  // 1.
+  const inputElement = useRef(null);
+
+  // 3. It will run on mount
+  useEffect(
+    function () {
+      inputElement.current.focus();
+      function callback(ev) {
+        if (document.activeElement === inputElement.current) return;
+
+        if (ev.code === "Enter") {
+          inputElement.current.focus();
+          setQuery("");
+        }
+      }
+      document.addEventListener("keydown", callback);
+
+      // Cleanup function
+      return () => document.removeEventListener("keydown", callback);
+    },
+    [setQuery]
+  );
+
   return (
     <input
       className="search"
@@ -219,6 +242,7 @@ function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={inputElement} // 2.
     />
   );
 }
