@@ -77,6 +77,11 @@ function MainApp() {
             How React Works (pending)
           </StyledLink>
         </StyledLi>
+        <StyledLi>
+          <StyledLink to="/reactquiz" variation="simple" size="nosize">
+            React Quiz
+          </StyledLink>
+        </StyledLi>
       </StyledUl>
     </div>
   );

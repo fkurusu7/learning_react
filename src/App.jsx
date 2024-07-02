@@ -11,6 +11,7 @@ import UsePopcornApp from "./apps/usepopcorn/UsePopcornApp";
 import StartRating from "./apps/usepopcorn/StarRating";
 import HowReactWorks from "./apps/howreactworks/HowReactWorks";
 import GlobalStyles from "./ui/GlobalStyles";
+import ReactQuiz from "./apps/reactquiz/ReactQuiz";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<MainApp />} />
         </Route>
+        {/* TODO create main Route for the apps with a back button */}
         <Route path="/pizzas" element={<PizzasApp />} />
         <Route path="/steps" element={<StepsApp />} />
         <Route path="/travel" element={<TravelApp />} />
@@ -28,6 +30,7 @@ function App() {
         <Route path="/usepopcorn" element={<UsePopcornApp />} />
         <Route path="/starrating" element={<StartRating />} />
         <Route path="/hrw" element={<HowReactWorks />} />
+        <Route path="/reactquiz" element={<ReactQuiz />} />
       </Routes>
     </BrowserRouter>
   );
