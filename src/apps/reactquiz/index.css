@@ -82,6 +82,7 @@ div.container-reactquiz {
 
 .container-reactquiz progress {
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   height: 12px;
   grid-column: 1 / -1;
@@ -96,11 +97,12 @@ div.container-reactquiz {
   border-radius: 100px;
 }
 
-.container-reactquiz .start .btn {
+.container-reactquiz .start .btn,
+.container-reactquiz .btn {
   background-color: #495057;
   border: 2px solid #495057;
   border-radius: 100px;
-  color: inherit;
+  color: #ced4da;
   cursor: pointer;
   display: block;
   font-family: inherit;
@@ -109,7 +111,8 @@ div.container-reactquiz {
   transition: 0.3s;
 }
 
-.container-reactquiz .start .btn-start {
+.container-reactquiz .start .btn-start,
+.container-reactquiz .btn-start {
   height: fit-content;
   margin-top: 2rem;
   width: fit-content;
@@ -139,8 +142,13 @@ div.container-reactquiz {
 }
 
 .container-reactquiz .btn-option {
+  background-color: #494f55;
+  color: #f1f3f5;
   width: 100%;
-  text-align: left;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 .container-reactquiz .btn-option.correct {
@@ -191,7 +199,14 @@ div.container-reactquiz {
   font-size: 1.4rem;
 }
 
+.container-reactquiz footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .container-reactquiz .timer {
+  margin-top: 2rem;
   float: left;
   font-size: 1.8rem;
   color: #ced4da;
