@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
 
-.container-reactquiz {
+div.container-reactquiz {
   min-height: 100vh;
   color: #f1f3f5;
   background-color: #343a40;
@@ -8,28 +8,54 @@
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
 
-.app-reactquiz {
+  /* .app-reactquiz { */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.container-reactquiz .main-quiz {
+  width: 60rem;
+}
+
+.container-reactquiz .app-header {
+  width: 80rem;
+  margin-bottom: 4rem;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.main {
-  width: 50rem;
+.container-reactquiz img {
+  width: 14rem;
 }
 
-.app-header {
-  width: 66rem;
+.container-reactquiz h1 {
+  background-color: transparent;
+  font-family: "Codystar";
+  font-size: 7.8rem;
+}
+
+.container-reactquiz h2 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+}
+
+.container-reactquiz h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
   margin-bottom: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.error {
+.container-reactquiz h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+.container-reactquiz .error {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 500;
@@ -38,39 +64,13 @@
   border-radius: 100px;
 }
 
-img {
-  width: 14rem;
-}
-
-h1 {
-  font-family: "Codystar";
-  font-size: 5.6rem;
-}
-
-h2 {
-  font-size: 3.6rem;
-  margin-bottom: 2rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-  font-weight: 600;
-  margin-bottom: 4rem;
-}
-
-h4 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 2.4rem;
-}
-
-.start {
+.container-reactquiz .start {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.progress {
+.container-reactquiz .progress {
   margin-bottom: 4rem;
   display: grid;
   justify-content: space-between;
@@ -80,79 +80,85 @@ h4 {
   color: #ced4da;
 }
 
-progress {
+.container-reactquiz progress {
   -webkit-appearance: none;
   width: 100%;
   height: 12px;
   grid-column: 1 / -1;
 }
 
-::-webkit-progress-bar {
+.container-reactquiz ::-webkit-progress-bar {
   background-color: #ced4da;
   border-radius: 100px;
 }
-::-webkit-progress-value {
+.container-reactquiz ::-webkit-progress-value {
   background-color: #1098ad;
   border-radius: 100px;
 }
 
-.btn {
+.container-reactquiz .start .btn {
+  background-color: #495057;
+  border: 2px solid #495057;
+  border-radius: 100px;
+  color: inherit;
+  cursor: pointer;
   display: block;
   font-family: inherit;
-  color: inherit;
   font-size: 2rem;
-  border: 2px solid #495057;
-  background-color: #495057;
   padding: 1.2rem 2.4rem;
-  cursor: pointer;
-  border-radius: 100px;
   transition: 0.3s;
 }
 
-.btn:not([disabled]):hover {
+.container-reactquiz .start .btn-start {
+  height: fit-content;
+  margin-top: 2rem;
+  width: fit-content;
+}
+
+.container-reactquiz .btn:not([disabled]):hover {
   background-color: #343a40;
 }
 
-.btn-option:not([disabled]):hover {
+.container-reactquiz .btn-option:not([disabled]):hover {
   transform: translateX(1.2rem);
 }
 
-.btn[disabled]:hover {
+.container-reactquiz .btn[disabled]:hover {
   cursor: not-allowed;
 }
 
-.btn-ui {
+.container-reactquiz .btn-ui {
   float: right;
 }
 
-.options {
+.container-reactquiz .options {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 3.2rem;
 }
 
-.btn-option {
+.container-reactquiz .btn-option {
   width: 100%;
   text-align: left;
 }
 
-.btn-option.correct {
+.container-reactquiz .btn-option.correct {
   background-color: #1098ad;
   border: 2px solid #1098ad;
   color: #f1f3f5;
 }
-.btn-option.wrong {
+.container-reactquiz .btn-option.wrong {
   background-color: #ffa94d;
   border: 2px solid #ffa94d;
   color: #343a40;
 }
 
-.answer {
+.container-reactquiz .answer {
   transform: translateX(2rem);
 }
 
-.result {
+.container-reactquiz .result {
   background-color: #1098ad;
   color: #f1f3f5;
   border-radius: 100px;
@@ -163,18 +169,18 @@ progress {
   margin-bottom: 1.6rem;
 }
 
-.result span {
+.container-reactquiz .result span {
   font-size: 2.2rem;
   margin-right: 4px;
 }
 
-.highscore {
+.container-reactquiz .highscore {
   font-size: 1.8rem;
   text-align: center;
   margin-bottom: 4.8rem;
 }
 
-.loader-container {
+.container-reactquiz .loader-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,7 +191,7 @@ progress {
   font-size: 1.4rem;
 }
 
-.timer {
+.container-reactquiz .timer {
   float: left;
   font-size: 1.8rem;
   color: #ced4da;
@@ -195,7 +201,7 @@ progress {
 }
 
 /* CREDIT: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
-.loader {
+.container-reactquiz .loader {
   width: 50px;
   height: 24px;
   background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0%
@@ -224,7 +230,7 @@ progress {
 
 /* ********** */
 /* First counter example */
-.counter {
+.container-reactquiz .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,15 +240,15 @@ progress {
   margin: 6rem;
 }
 
-.counter * {
+.container-reactquiz .counter * {
   font-size: inherit;
   padding: 0.8rem;
   color: #495057;
 }
-.counter input {
+.container-reactquiz .counter input {
   text-align: center;
 }
-.counter input + span,
-.counter p {
+.container-reactquiz .counter input + span,
+.container-reactquiz .counter p {
   color: #ced4da;
 }
