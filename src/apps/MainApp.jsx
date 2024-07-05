@@ -82,6 +82,11 @@ function MainApp() {
             React Quiz
           </StyledLink>
         </StyledLi>
+        <StyledLi>
+          <StyledLink to="/worldwise" variation="simple" size="nosize">
+            World Wise
+          </StyledLink>
+        </StyledLi>
       </StyledUl>
     </div>
   );

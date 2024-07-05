@@ -12,6 +12,7 @@ import StartRating from "./apps/usepopcorn/StarRating";
 import HowReactWorks from "./apps/howreactworks/HowReactWorks";
 import GlobalStyles from "./ui/GlobalStyles";
 import ReactQuiz from "./apps/reactquiz/ReactQuiz";
+import WorldWiseApp from "./apps/worldwise/WorldWiseApp";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/starrating" element={<StartRating />} />
         <Route path="/hrw" element={<HowReactWorks />} />
         <Route path="/reactquiz" element={<ReactQuiz />} />
+        <Route path="/worldwise" element={<WorldWiseApp />} />
       </Routes>
     </BrowserRouter>
   );
