@@ -1,5 +1,11 @@
+import { Outlet } from "react-router-dom";
+
 function WorldWiseApp() {
-  return <div>WORLD WISE</div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 }
 
 export default WorldWiseApp;
