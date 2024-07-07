@@ -17,6 +17,7 @@ import Home from "./apps/worldwise/pages/Home";
 import Product from "./apps/worldwise/pages/Product";
 import Pricing from "./apps/worldwise/pages/Pricing";
 import PageNotFound from "./apps/worldwise/pages/PageNotFound";
+import WWPageLayout from "./apps/worldwise/pages/WWPageLayout";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/worldwise/product" element={<Product />} />
           <Route path="/worldwise/pricing" element={<Pricing />} />
+          <Route path="/worldwise/app" element={<WWPageLayout />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
