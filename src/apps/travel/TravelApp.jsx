@@ -10,7 +10,7 @@ const initialItems = [
 ];
 
 function Logo() {
-  return <h1>🏝 Far Away 🧳</h1>;
+  return <h1 className="travel-title">🏝 Far Away 🧳</h1>;
 }
 
 function Form({ onAddItems }) {
@@ -47,12 +47,13 @@ function Form({ onAddItems }) {
         ))}
       </select>
       <input
+        className="in-trv"
         type="text"
         placeholder="Item..."
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
-      <button>Add</button>
+      <button className="btn-trv">Add</button>
     </form>
   );
 }
@@ -61,6 +62,7 @@ function Item({ item, onDeleteItem, onToggleItems }) {
   return (
     <li>
       <input
+        className="in-trv"
         type="checkbox"
         value={item.packed}
         onChange={() => onToggleItems(item.id)}
@@ -68,7 +70,9 @@ function Item({ item, onDeleteItem, onToggleItems }) {
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+      <button className="btn-trv" onClick={() => onDeleteItem(item.id)}>
+        ❌
+      </button>
     </li>
   );
 }
@@ -106,7 +110,11 @@ function PackingList({ items, onDeleteItem, onToggleItems, onClearList }) {
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
-        <button onClick={onClearList} disabled={!items.length}>
+        <button
+          className="btn-trv"
+          onClick={onClearList}
+          disabled={!items.length}
+        >
           Clear List
         </button>
       </div>

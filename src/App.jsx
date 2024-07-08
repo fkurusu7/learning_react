@@ -13,11 +13,12 @@ import HowReactWorks from "./apps/howreactworks/HowReactWorks";
 import GlobalStyles from "./ui/GlobalStyles";
 import ReactQuiz from "./apps/reactquiz/ReactQuiz";
 import WorldWiseApp from "./apps/worldwise/WorldWiseApp";
-import Home from "./apps/worldwise/pages/Home";
+import Homepage from "./apps/worldwise/pages/Homepage";
 import Product from "./apps/worldwise/pages/Product";
 import Pricing from "./apps/worldwise/pages/Pricing";
 import PageNotFound from "./apps/worldwise/pages/PageNotFound";
 import WWPageLayout from "./apps/worldwise/pages/WWPageLayout";
+import Login from "./apps/worldwise/pages/Login";
 
 function App() {
   return (
@@ -38,9 +39,10 @@ function App() {
         <Route path="/hrw" element={<HowReactWorks />} />
         <Route path="/reactquiz" element={<ReactQuiz />} />
         <Route path="/worldwise" element={<WorldWiseApp />}>
-          <Route index element={<Home />} />
+          <Route index element={<Homepage />} />
           <Route path="/worldwise/product" element={<Product />} />
           <Route path="/worldwise/pricing" element={<Pricing />} />
+          <Route path="/worldwise/login" element={<Login />} />
           <Route path="/worldwise/app" element={<WWPageLayout />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>

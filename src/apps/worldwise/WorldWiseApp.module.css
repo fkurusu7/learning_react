@@ -24,7 +24,7 @@
 .world_wise_layout {
   font-size: 62.5%;
   box-sizing: border-box;
-  background-color: var(--color-brand--2);
+  /* background-color: var(--color-brand--2); */
   font-family: "Manrope", sans-serif;
   color: var(--color-light--2);
   font-weight: 400;
@@ -53,8 +53,8 @@ input:focus {
   background-color: #fff;
 }
 
-.cta:link,
-.cta:visited {
+:global(.cta):link,
+:global(.cta):visited {
   display: inline-block;
   background-color: var(--color-brand--2);
   color: var(--color-dark--1);
