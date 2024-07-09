@@ -19,8 +19,36 @@ import Pricing from "./apps/worldwise/pages/Pricing";
 import PageNotFound from "./apps/worldwise/pages/PageNotFound";
 import WWPageLayout from "./apps/worldwise/pages/WWPageLayout";
 import Login from "./apps/worldwise/pages/Login";
+import CityList from "./apps/worldwise/components/CityList";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const BASE_URL_WW = "http://localhost:8000";
+  useEffect(function () {
+    async function fetchCities() {
+      try {
+        // setIsLoading(true);
+        const res = await fetch(`${BASE_URL_WW}/cities`);
+        const data = await res.json();
+        console.log(data);
+        setCities(data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    const timer = setTimeout(() => {
+      fetchCities();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -40,10 +68,21 @@ function App() {
         <Route path="/reactquiz" element={<ReactQuiz />} />
         <Route path="/worldwise" element={<WorldWiseApp />}>
           <Route index element={<Homepage />} />
-          <Route path="/worldwise/product" element={<Product />} />
-          <Route path="/worldwise/pricing" element={<Pricing />} />
-          <Route path="/worldwise/login" element={<Login />} />
-          <Route path="/worldwise/app" element={<WWPageLayout />} />
+          <Route path="product" element={<Product />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="login" element={<Login />} />
+          <Route path="app" element={<WWPageLayout />}>
+            <Route
+              index
+              element={<CityList cities={cities} isLoading={isLoading} />}
+            />
+            <Route
+              path="cities"
+              element={<CityList cities={cities} isLoading={isLoading} />}
+            />
+            <Route path="countries" element={<p>Route countries</p>} />
+            <Route path="form" element={<p>Route form</p>} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

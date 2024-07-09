@@ -1,9 +1,12 @@
-import AppNav from "../components/AppNav";
+import Map from "../components/Map";
+import Sidebar from "../components/Sidebar";
+import styles from "./WWPageLayout.module.css";
 
 function WWPageLayout() {
   return (
-    <div>
-      <AppNav />
+    <div className={styles.appww}>
+      <Sidebar />
+      <Map />
     </div>
   );
 }
