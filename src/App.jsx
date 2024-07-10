@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import AppLayout from "./ui/AppLayout";
 import PizzasApp from "./apps/pizza/PizzasApp";
@@ -21,6 +21,9 @@ import WWPageLayout from "./apps/worldwise/pages/WWPageLayout";
 import Login from "./apps/worldwise/pages/Login";
 import CityList from "./apps/worldwise/components/CityList";
 import { useEffect, useState } from "react";
+import CountryList from "./apps/worldwise/components/CountryList";
+import City from "./apps/worldwise/components/City";
+import Form from "./apps/worldwise/components/Form";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -72,16 +75,17 @@ function App() {
           <Route path="pricing" element={<Pricing />} />
           <Route path="login" element={<Login />} />
           <Route path="app" element={<WWPageLayout />}>
-            <Route
-              index
-              element={<CityList cities={cities} isLoading={isLoading} />}
-            />
+            <Route index element={<Navigate replace to="cities" />} />
             <Route
               path="cities"
               element={<CityList cities={cities} isLoading={isLoading} />}
             />
-            <Route path="countries" element={<p>Route countries</p>} />
-            <Route path="form" element={<p>Route form</p>} />
+            <Route path="cities/:id" element={<City />} />
+            <Route
+              path="countries"
+              element={<CountryList cities={cities} isLoading={isLoading} />}
+            />
+            <Route path="form" element={<Form />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Route>
