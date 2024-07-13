@@ -20,77 +20,49 @@ import PageNotFound from "./apps/worldwise/pages/PageNotFound";
 import WWPageLayout from "./apps/worldwise/pages/WWPageLayout";
 import Login from "./apps/worldwise/pages/Login";
 import CityList from "./apps/worldwise/components/CityList";
-import { useEffect, useState } from "react";
 import CountryList from "./apps/worldwise/components/CountryList";
 import City from "./apps/worldwise/components/City";
 import Form from "./apps/worldwise/components/Form";
+import { CitiesProvider } from "./apps/worldwise/contexts/CitiesContext";
 
 function App() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const BASE_URL_WW = "http://localhost:8000";
-  useEffect(function () {
-    async function fetchCities() {
-      try {
-        // setIsLoading(true);
-        const res = await fetch(`${BASE_URL_WW}/cities`);
-        const data = await res.json();
-        console.log(data);
-        setCities(data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    const timer = setTimeout(() => {
-      fetchCities();
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<MainApp />} />
-        </Route>
-        {/* TODO create main Route for the apps with a back button */}
-        <Route path="/pizzas" element={<PizzasApp />} />
-        <Route path="/steps" element={<StepsApp />} />
-        <Route path="/travel" element={<TravelApp />} />
-        <Route path="/accordion" element={<AccordionApp />} />
-        <Route path="/calctip" element={<CalcApp />} />
-        <Route path="/usepopcorn" element={<UsePopcornApp />} />
-        <Route path="/starrating" element={<StartRating />} />
-        <Route path="/hrw" element={<HowReactWorks />} />
-        <Route path="/reactquiz" element={<ReactQuiz />} />
-        <Route path="/worldwise" element={<WorldWiseApp />}>
-          <Route index element={<Homepage />} />
-          <Route path="product" element={<Product />} />
-          <Route path="pricing" element={<Pricing />} />
-          <Route path="login" element={<Login />} />
-          <Route path="app" element={<WWPageLayout />}>
-            <Route index element={<Navigate replace to="cities" />} />
-            <Route
-              path="cities"
-              element={<CityList cities={cities} isLoading={isLoading} />}
-            />
-            <Route path="cities/:id" element={<City />} />
-            <Route
-              path="countries"
-              element={<CountryList cities={cities} isLoading={isLoading} />}
-            />
-            <Route path="form" element={<Form />} />
+    <CitiesProvider>
+      <BrowserRouter>
+        <GlobalStyles />
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<MainApp />} />
           </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          {/* TODO create main Route for the apps with a back button */}
+          <Route path="/pizzas" element={<PizzasApp />} />
+          <Route path="/steps" element={<StepsApp />} />
+          <Route path="/travel" element={<TravelApp />} />
+          <Route path="/accordion" element={<AccordionApp />} />
+          <Route path="/calctip" element={<CalcApp />} />
+          <Route path="/usepopcorn" element={<UsePopcornApp />} />
+          <Route path="/starrating" element={<StartRating />} />
+          <Route path="/hrw" element={<HowReactWorks />} />
+          <Route path="/reactquiz" element={<ReactQuiz />} />
+
+          <Route path="/worldwise" element={<WorldWiseApp />}>
+            <Route index element={<Homepage />} />
+            <Route path="product" element={<Product />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="login" element={<Login />} />
+
+            <Route path="app" element={<WWPageLayout />}>
+              <Route index element={<Navigate replace to="cities" />} />
+              <Route path="cities" element={<CityList />} />
+              <Route path="cities/:id" element={<City />} />
+              <Route path="countries" element={<CountryList />} />
+              <Route path="form" element={<Form />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </CitiesProvider>
   );
 }
 
