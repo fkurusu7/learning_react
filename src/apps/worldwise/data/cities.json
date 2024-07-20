@@ -47,6 +47,42 @@
         "lat": "52.1874047455997",
         "lng": "5.47119140625"
       }
+    },
+    {
+      "id": "d904",
+      "cityName": "La Calzada de Calatrava",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-07-19T05:44:06.198Z",
+      "notes": "Amaizing",
+      "position": {
+        "lat": "38.66835610151506",
+        "lng": "-3.6914062500000004"
+      }
+    },
+    {
+      "id": "ed3f",
+      "cityName": "Pontevedra",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-07-19T05:45:00.264Z",
+      "notes": "",
+      "position": {
+        "lat": "42.437647200108685",
+        "lng": "-8.594055175781252"
+      }
+    },
+    {
+      "id": "ced4",
+      "cityName": "Andorra la Vella",
+      "country": "Andorra",
+      "emoji": "🇦🇩",
+      "date": "2024-07-19T05:46:58.064Z",
+      "notes": "",
+      "position": {
+        "lat": "42.508552415528634",
+        "lng": "1.5257263183593752"
+      }
     }
   ]
 }

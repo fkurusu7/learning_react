@@ -1,27 +1,69 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useEffect, useContext, useReducer } from "react";
 
 const CitiesContext = createContext();
 
+const initialState = {
+  cities: [],
+  isLoading: false,
+  currentCity: {},
+  error: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "loading":
+      return { ...state, isLoading: true };
+    case "cities/loaded":
+      return { ...state, isLoading: false, cities: action.payload };
+    case "city/loaded":
+      return { ...state, isLoading: false, currentCity: action.payload };
+    case "city/created":
+      return {
+        ...state,
+        isLoading: false,
+        cities: [...state.cities, action.payload],
+        currentCity: action.payload,
+      };
+    case "cities/deleted":
+      return {
+        ...state,
+        isLoading: false,
+        cities: state.cities.filter((city) => city.id !== action.payload),
+        currentCity: {},
+      };
+    case "rejected":
+      return { ...state, isLoading: false, error: action.payload };
+    default:
+      throw new Error("Unkwon action type");
+  }
+}
+
 function CitiesProvider({ children }) {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [currentCity, setcurrentCity] = useState({});
+  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
+  // const [cities, setCities] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [currentCity, setcurrentCity] = useState({});
 
   const BASE_URL_WW = "http://localhost:8000";
   useEffect(function () {
     async function fetchCities() {
+      dispatch({ type: "loading" });
       try {
-        // setIsLoading(true);
         const res = await fetch(`${BASE_URL_WW}/cities`);
         const data = await res.json();
         console.log(data);
-        setCities(data);
+
+        dispatch({ type: "cities/loaded", payload: data });
       } catch (err) {
-        console.log(err);
-      } finally {
-        setIsLoading(false);
+        dispatch({
+          type: "rejected",
+          payload: "There was an error loading the cities...",
+        });
       }
     }
 
@@ -34,19 +76,22 @@ function CitiesProvider({ children }) {
 
   async function fetchCity(id) {
     try {
+      dispatch({ type: "loading" });
       const result = await fetch(`${BASE_URL_WW}/cities/${id}`);
       const data = await result.json();
-      setcurrentCity(data);
+
+      dispatch({ type: "city/loaded", payload: data });
     } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: "rejected",
+        payload: "There was an error loading the city...",
+      });
     }
   }
 
   async function createCity(newCity) {
     try {
-      setIsLoading(true);
+      dispatch({ type: "loading" });
       const result = await fetch(`${BASE_URL_WW}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -55,11 +100,16 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await result.json();
-      setCities((cities) => [...cities, data]);
+
+      dispatch({
+        type: "city/created",
+        payload: data,
+      });
     } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: "rejected",
+        payload: "There was an error creating the city...",
+      });
     }
   }
 
@@ -69,11 +119,15 @@ function CitiesProvider({ children }) {
         method: "DELETE",
       });
 
-      setCities((cities) => cities.filter((city) => city.id !== id));
+      dispatch({
+        type: "city/deleted",
+        payload: id,
+      });
     } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+      dispatch({
+        type: "rejected",
+        payload: "There was an error deleting the city...",
+      });
     }
   }
 
